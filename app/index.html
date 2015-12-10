@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en" ng-app="incApp">
+<head>
+  <meta charset="utf-8">
+  <title>My HTML File</title>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="css/app.css">
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="js/services.js"></script>
+
+  <script src="js/controllers.js"></script>
+
+</head>
+<body ng-controller="incNews">
+	<div class = "container">
+		<div class = "row">
+			<div class = "col-xs-3">
+				 Search: <input ng-model="searchNews" class = "form-control">
+			</div>
+			<div class = 'col-xs-9'>
+				<ul>
+					<li ng-repeat="nw in news | filter:searchNews" class="thumbnail row">
+				      <img class = "img-thumbnail col-xs-3" ng-src="{{'http://fs.royal.kz/640x480xc/' + nw.news_image_file}}">
+				      <div class = "col-xs-9">
+				      	<h4> <b> {{nw.news_title}}</b></h4>
+				      </div>
+				      <p>{{nw.news_cat}}</p>
+				   </li>
+				 </ul>
+		
+			</div>
+
+		</div>
+	</div>  
+</body>
+</html>
+<style>
+</style>
